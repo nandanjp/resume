@@ -1,0 +1,175 @@
+\documentclass[fontsize=11pt]{article}
+    \usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[svgnames]{xcolor}  % Colours by their 'svgnames'
+\usepackage[margin=0.75in]{geometry}
+  \textheight=700px
+\usepackage{url}
+\usepackage{lmodern} % Allow arbitrary font sizes
+\usepackage{textcomp}
+\usepackage{xcolor}
+
+%% Define a new 'modern' style for the url package that will use a smaller font.
+\makeatletter
+\def\url@modernstyle{
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{}}}
+\makeatother
+\urlstyle{modern} %% And use the newly defined style.
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+\renewcommand{\familydefault}{\sfdefault}
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{                 % Change font of \section command
+  \usefont{OT1}{phv}{b}{n}%   % bch-b-n: CharterBT-Bold font
+  \sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}      % Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}   % Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+    \Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+    \par \normalsize \normalfont}
+
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+    \large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+    \par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+    \noindent\hangindent=2em\hangafter=0 % Indentation
+    \parbox{\spacebox}{                  % Box to align text
+    \textit{#1}}                      % Entry name (birth, address, etc.)
+    \hspace{1.5em} #2 \par}              % Entry value
+
+\newcommand{\SkillsEntry}[2]{                % Same as \PersonalEntry
+    \noindent\hangindent=2em\hangafter=0 % Indentation
+    \parbox{\spacebox}{                  % Box to align text
+    \textit{#1}}                    % Entry name (birth, address, etc.)
+    \hspace{1.5em} #2 \par}              % Entry value
+
+\newcommand{\AwardsEntry}[2]{                % Same as \PersonalEntry
+    \noindent\hangindent=2em\hangafter=0 % Indentation
+    \parbox{\spacebox}{                  % Box to align text
+    \textit{#1}}                    % Entry name (birth, address, etc.)
+    \hspace{1.5em} #2 \par}              % Entry value
+
+\newcommand{\EducationEntry}[4]{
+    \noindent \textbf{#1} \hfill      % Study
+    \colorbox{Black}{
+      \parbox{8.5em}{
+      \hfill\color{White}#2}} \par  % Duration
+    \noindent \textit{#3} \par        % School
+    \noindent\hangindent=2em\hangafter=0 \small #4 % Description
+    \normalsize \par}
+
+\newcommand{\WorkEntry}[4]{       % Same as \EducationEntry
+    \noindent \textbf{#1} \hfill      % Jobname
+    \colorbox{Black}{%
+      \parbox{9em}{%
+      \hfill\color{White}#2}} \par   % Duration
+        \noindent \textit{#3} \par        % Company
+    \noindent\hangindent=2em\hangafter=0 \small #4 % Description
+    \normalsize \par}
+
+\newcommand{\ProjectEntry}[4]{         % Similar to \EducationEntry
+    \noindent \textbf{#1} \noindent \textit{#3} \hfill {#2} \par
+    \noindent \small #4 % Description
+    \normalsize \par}
+
+\newcommand{\AwardEntry}[4]{         % Similar to \EducationEntry
+    \noindent \textbf{#1} \noindent \textit{#3} \hfill {#2} \par
+    \noindent \small #4 % Description
+    \normalsize \par}
+    \begin{document}
+    
+\MyName{Nandan Patel}
+\bigskip
+{\small \hfill nandan.jp17@gmail.com | +14034049271 | \underline{\color{blue}https://github.com/nandanjp} | \underline{\color{blue}https://linkedin.com/in/nandan-patel-3026ab227}
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+\SkillsEntry{Languages}{C, C++, HTML, CSS, Java, JavaScript, TypeScript, Python, Swift}
+\SkillsEntry{Frameworks} {GIT, SwiftUI, React, Angular, SASS, Next.js, TailwindCSS}
+%%% Projects
+%%% ------------------------------------------------------------
+\NewPart{Software Projects}{}
+
+\ProjectEntry{Swift Front-End IOS Application}{}
+{SwiftUI, Swift, XCode, Cocoapods, Combine, JSON}
+{\begin{itemize} \itemsep -1pt
+    \item Designed an IOS application focused on the design of the user interface
+    \item App integrated design principles involved in common user interface elements (such as buttons) and interactions (gestures, and animations) into a well-designed, useable application
+    \end{itemize}
+}
+\ProjectEntry{Full-Stack Web App}{}
+{JavaScript, HTML, CSS, PUG, Express, MongoDB, REST}
+{\underline{\color{blue}https://github.com/nandanjp/Full-Stack-App.git}}
+{\begin{itemize} \itemsep -1pt
+    \item Built a full-stack website utilizing a NodeJS backend with a server-side rendered template for the front-end
+    \item Application was a complete website using Express as a backend framework and MongoDB as the website's database, which was accessed through a custom REST API
+    \end{itemize}
+}
+\ProjectEntry{Front-End Web Dev}{}
+{HTML, CSS, SASS}
+{\underline{\color{blue}{https://github.com/nandanjp/CSS-Flexbox.git}}}
+{\begin{itemize} \itemsep -1pt
+    \item Designed, programmed, and deployed complete front-end applications through CSS and SASS
+    \item Created to learn and develop ability to create visually appealing user interfaces that could be utilized in a full web app
+    \end{itemize}
+}
+%%% Work experience
+%%% ------------------------------------------------------------
+
+\NewPart{Professional Experience}{}
+
+\WorkEntry
+{Teacher}
+{Jul 2019 - Aug 2022}
+{Kumon, Calgary, Alberta}
+{\begin{itemize} \itemsep -1pt
+	\item Guided, assessed, and developed mathematical, language and reading proficiency skills in students aged 5-18
+	\item Built rapport with students to cater to individual learning and worked on building fundamental, intermediate, and advanced mathematical and language concepts
+	\item Assisted in the marking of students work and in providing guidance when needed (especially in explaining theoretical concepts)
+	\end{itemize}}
+\WorkEntry
+{Teacher Helper}
+{Jul 2020 - Aug 2020}
+{Launchpad Learning, Calgary, AB}
+{\begin{itemize} \itemsep -1pt
+	\item Built rapport with 7 students developing programming proficiency in Python
+	\item Guided students through fundamental programming concepts and demonstrated their implementation in Python
+	\item Provided several coding challenges to showcase understanding and provide practical use cases for programming
+	\item Ensured to supply students with extensions to fundamental programming ideas (such as using these skills to create applications)
+	\end{itemize}}
+
+\NewPart{Awards}{}
+\AwardEntry{Student Honour Roll}{University of Waterloo}
+{May 2022}
+{Awarded recognition in the student honour role for the \textbf{Euclid Contest} offered by the University of Waterloo.}
+\sepspace
+\AwardEntry{Top 25}{University of Waterloo}
+{Feb 2022}
+{Awarded a certification of distinction for placing within the top 25 in the \textbf{Canadian Computing Competition} offered by the University of Waterloo.}
+    %%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+\EducationEntry
+{Bachelor of Engineering Software Engineering}
+{Sep 2022 - Apr 2027}
+{University of Waterloo, Waterloo, ON}
+
+\end{document}
